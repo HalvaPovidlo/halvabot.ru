@@ -1,0 +1,38 @@
+<div class="movie-page-container">
+  <div class="movie-page">
+    <img alt="cover" src="{{(movie$ | async)?.cover}}">
+    <div class="movie-page-desc">
+      <div class="movie-page-title"> {{ (movie$ | async)?.title }}</div>
+      <div class="movie-page-title-original"> {{(movie$ | async)?.title_original}} </div>
+      <div class="movie-page-desc-pairs">
+        <div class="row">
+          <div class="title">Режиссёр</div>
+          <div class="value">{{(movie$ | async)?.director || 'Неизвестно'}}</div>
+        </div>
+        <div class="row">
+          <div class="title">Длительность</div>
+          <div class="value">{{(movie$ | async)?.duration}}</div>
+        </div>
+        <div class="row">
+          <div class="title">Жанры</div>
+          <div class="value">{{(movie$ | async)?.genres}}</div>
+        </div>
+        <div class="row">
+          <div class="title">Ссылки</div>
+          <div class="value">
+            <a href="{{(movie$ | async)?.kinopoisk}}">
+              <img alt="kinopoisk_icon" src="../../../assets/kinopoisk.png">
+            </a>
+            <span>{{(movie$ | async)?.rating_kinopoisk}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='movie-page-text'>
+      <div class="movie-page-text-header">
+        Описание
+      </div>
+      {{(movie$ | async)?.description}}
+    </div>
+  </div>
+</div>

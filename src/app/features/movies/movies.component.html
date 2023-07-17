@@ -1,0 +1,17 @@
+<div class="movies-container">
+  <div class="secondary-header">
+    <a>Все</a>
+    <a>Анимешки</a>
+    <a>Сериалы</a>
+    <a>Фильмы</a>
+    <a>Треш</a>
+    <a>Топы</a>
+  </div>
+  <div class="movies">
+    <div class="movie" *ngFor="let movie of movies">
+      <a routerLink="{{movie.id}}">
+        <img alt="movie-{{movie.title}}" src="{{movie.cover}}">
+      </a>
+    </div>
+  </div>
+</div>

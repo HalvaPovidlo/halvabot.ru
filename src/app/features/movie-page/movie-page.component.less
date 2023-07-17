@@ -1,0 +1,148 @@
+.movie-page-container {
+  padding: 50px 200px;
+}
+
+.movie-page {
+  display: grid;
+  grid-template-columns: 3fr 5fr 2fr 2fr;
+  align-items: stretch;
+
+  &-title {
+    color: #FFF;
+    font-family: Manrope, serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 12px;
+  }
+
+  &-title-original {
+    color: #FFF;
+    font-family: Manrope, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 27px;
+  }
+
+  & img {
+    height: 500px;
+    border-radius: 20px;
+  }
+
+  &-text {
+    grid-column-start: -5;
+    grid-column-end: -3;
+    margin-top: 3vh;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: #202020;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.40);
+    padding: 2vw;
+    font-family: 'Manrope', serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #FFF;
+    font-size: 18px;
+    line-height: 160%;
+
+    &-header {
+      color: #FFF;
+      font-family: Manrope, serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 15px;
+    }
+  }
+
+  &-desc {
+    float: left;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: #202020;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.40);
+    padding: 2vw;
+    font-family: 'Manrope', serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF;
+
+    &-pairs {
+
+      & .row {
+        display: flex;
+        padding: 10px 0;
+
+        & .title {
+          width: 150px;
+          color: rgba(255, 255, 255, 0.40);
+          font-family: Manrope, serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        & .value {
+          color: #FFF;
+          font-family: Manrope, serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+
+          & img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+
+      & .values {
+        position: relative;
+        left: 50px
+      }
+    }
+
+    &-field {
+      color: rgba(255, 255, 255, 0.40);
+      text-align: left;
+      font-family: Manrope, serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin: 20px 0;
+    }
+
+    &-value {
+      display: flex;
+      margin: 20px 0;
+      align-items: center;
+      white-space: normal;
+      color: #FFF;
+      text-align: center;
+      font-family: Manrope, serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      & a {
+        display: block;
+        height: 30px;
+        width: 30px;
+        padding-right: 10px;
+
+        & img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
