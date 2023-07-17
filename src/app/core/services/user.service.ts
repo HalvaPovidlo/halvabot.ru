@@ -23,7 +23,7 @@ export class UserService {
   }
 
   login() {
-    window.location.href = ` http://localhost:9090/api/v1/login`;
+    window.location.href = `http://178.154.221.12:9090/api/v1/login`;
   }
 
   register(credentials: {
@@ -38,7 +38,7 @@ export class UserService {
 
   getAllUsers(): Observable<any> {
     return this.http
-      .get<any>("http://localhost:9090/api/v1/users");
+      .get<any>("http://178.154.221.12:9090/api/v1/users");
   }
 
   setAuth(user: User): void {
