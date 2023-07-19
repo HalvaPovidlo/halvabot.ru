@@ -1,0 +1,80 @@
+/* Faux outline for older browsers */
+.sigma-text {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 13vw;
+  font-family: Manrope, serif;
+  font-size: 4.2vw;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  color: white; /* Unfortunately you can't use transparent here … */
+  text-shadow: -1px -1px 0 #000,
+    1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000
+}
+
+/* Real outline for modern browsers */
+@supports ((text-stroke: 2px black) or (-webkit-text-stroke: 2px black)) {
+  .sigma-text {
+    opacity: 0.2;
+    color: transparent;
+    text-shadow: -1px -1px 0 #3E3E3E,
+      0   -1px 0 #3E3E3E,
+      1px -1px 0 #3E3E3E,
+    1px 0 0 #3E3E3E,
+    1px 1px 0 #3E3E3E,
+    0 1px 0 #3E3E3E,
+    -1px 1px 0 #3E3E3E,
+    -1px 0 0 #3E3E3E;
+  }
+}
+
+.discord-container {
+  position: relative;
+  top: 15%;
+  margin: auto;
+  width: 20vw;
+  height: 21vw;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #FFF;
+  font-family: Manrope, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  & a {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    & img {
+      margin-bottom: 1.5vh;
+    }
+  }
+}
+
+.discord {
+  color: #FFF;
+  font-family: Manrope, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}

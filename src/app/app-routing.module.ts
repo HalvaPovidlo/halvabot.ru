@@ -3,7 +3,6 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./features/home/home.component";
 import {AuthComponent} from "./core/auth/auth.component";
 import {UserService} from "./core/services/user.service";
-import {isArray} from "@angular/compiler-cli/src/ngtsc/annotations/common";
 import {map} from "rxjs/operators";
 import {MoviesComponent} from "./features/movies/movies.component";
 import {MusicComponent} from "./features/music/music.component";
@@ -16,11 +15,6 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: AuthComponent,
-    canActivate: [() => inject(UserService).isAuthenticated.pipe(map((isAuth) => !isAuth))]
-  },
-  {
-    path: "register",
     component: AuthComponent,
     canActivate: [() => inject(UserService).isAuthenticated.pipe(map((isAuth) => !isAuth))]
   },
@@ -40,9 +34,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
-    })
+    preloadingStrategy: PreloadAllModules,
+  })
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

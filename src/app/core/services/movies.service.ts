@@ -20,5 +20,10 @@ export class MoviesService {
     return this.http
       .get<any>(`http://178.154.221.12:9091/api/v1/public/films/${id}/get`)
   }
+
+  score(id: number, score: number): Observable<any> {
+    return this.http
+      .patch<any>(`http://178.154.221.12:9091/api/v1/films/${id}/score`, {score: score})
+  }
 }
 

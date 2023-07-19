@@ -1,6 +1,6 @@
 <div class="movie-page-container">
   <div class="movie-page">
-    <img alt="cover" src="{{(movie$ | async)?.cover}}">
+    <img alt="cover" class="movie-page-cover" src="{{(movie$ | async)?.cover}}">
     <div class="movie-page-desc">
       <div class="movie-page-title"> {{ (movie$ | async)?.title }}</div>
       <div class="movie-page-title-original"> {{(movie$ | async)?.title_original}} </div>
@@ -26,6 +26,15 @@
             <span>{{(movie$ | async)?.rating_kinopoisk}}</span>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="movie-page-score">
+      <div class="score">
+        <img alt="star" src="assets/star.svg"/>
+        <p> {{(movie$ | async)?.rating_average?.toFixed(2)}} </p>
+      </div>
+      <div class="buttons">
+        <button (click)="score(i)" *ngFor="let i of [-1, 0, 1, 2]"> {{i}} </button>
       </div>
     </div>
     <div class='movie-page-text'>

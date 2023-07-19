@@ -10,10 +10,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MoviesComponent} from './features/movies/movies.component';
 import {MusicComponent} from './features/music/music.component';
-import {ErrorInterceptor} from "./core/interceptors/error.interceptor";
 import {MoviePageComponent} from './features/movie-page/movie-page.component';
 import {NgOptimizedImage} from "@angular/common";
 import {TokenInterceptor} from "./core/interceptors/token.interceptor";
+import {ErrorInterceptor} from "./core/interceptors/error.interceptor";
 
 @NgModule({
   declarations: [

@@ -13,6 +13,7 @@ import {User} from "../../core/models/user.model";
 })
 export class MoviePageComponent implements OnInit, OnDestroy {
   movie$: Observable<Movie>;
+  movieId: number;
   users$: Observable<User[]>
   destroy$ = new Subject<void>();
 
@@ -23,12 +24,20 @@ export class MoviePageComponent implements OnInit, OnDestroy {
   ) {
   }
 
+  score(score: number) {
+    this.moviesService
+      .score(score, this.movieId)
+  }
+
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.movie$ = this.moviesService.getMovieById(id);
     this.users$ = this.userService.getAllUsers();
     this.users$.subscribe(x => console.log(x));
-    this.movie$.subscribe(x => console.log(x));
+    this.movie$.subscribe(x => {
+      console.log(x)
+      this.movieId = x.id
+    });
   }
 
   ngOnDestroy(): void {

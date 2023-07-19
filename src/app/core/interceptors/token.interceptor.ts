@@ -2,10 +2,13 @@ import {Injectable} from "@angular/core";
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {JwtService} from "../services/jwt.service";
+import {Router} from "@angular/router";
 
 @Injectable({providedIn: "root"})
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private readonly jwtService: JwtService) {
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly router: Router) {
   }
 
   intercept(
@@ -19,6 +22,13 @@ export class TokenInterceptor implements HttpInterceptor {
         ...(token ? {Authorization: `Bearer ${token}`} : {}),
       },
     });
-    return next.handle(request);
+
+    return next.handle(request)
+    // .pipe(
+    //   catchError((e) => {
+    //     this.router.navigate(['login']);
+    //     return throwError(e.error);
+    //   })
+    // )
   }
 }

@@ -23,7 +23,7 @@ export class UserService {
   }
 
   login() {
-    window.location.href = `http://178.154.221.12:9090/api/v1/login`;
+    window.location.href = `http://localhost:9090/api/v1/login`;
   }
 
   register(credentials: {

@@ -2,8 +2,8 @@
   overflow: hidden;
   display: flex;
   font-family: Manrope, serif;
-  padding-right: 200px;
-  padding-left: 200px;
+  margin: 0 auto;
+  padding: 0 13vw;
 
   &-logo {
     background: rgba(0, 0, 0, 0.15);
@@ -11,6 +11,11 @@
     margin-right: 16px;
     padding: 16px 32px;
     border-radius: 20px;
+
+    & img {
+      margin-top: 8px;
+      height: 30px;
+    }
   }
 
   &-left {
@@ -28,6 +33,7 @@
 
     & a {
       color: rgba(255, 255, 255, 0.5);
+
       &:hover {
         color: #FFFFFF;
       }
@@ -40,6 +46,7 @@
     font-size: 18px;
     line-height: 25px;
     border-radius: 4px;
+
     &:not(:last-child) {
       padding-right: 48px;
     }
@@ -84,6 +91,7 @@
     display: block;
     text-align: left;
   }
+
   .header-right {
     float: none;
   }
