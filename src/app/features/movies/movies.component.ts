@@ -1,18 +1,27 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MoviesService} from "../../core/services/movies.service";
-import {Movie} from "../../core/models/movie.model";
+import {Observable, Subject} from "rxjs";
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.less']
 })
-export class MoviesComponent implements OnInit{
-  movies: Movie[] = [];
-constructor(
-  private readonly moviesService:MoviesService
-) {}
+export class MoviesComponent implements OnInit, OnDestroy {
+  movies$: Observable<any>;
+  destroy$ = new Subject<void>();
+
+  constructor(
+    private readonly moviesService: MoviesService
+  ) {
+  }
+
   ngOnInit(): void {
-    this.moviesService.getAllMovies().subscribe(data => this.movies = data.films);
+    this.movies$ = this.moviesService.getAllMovies();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

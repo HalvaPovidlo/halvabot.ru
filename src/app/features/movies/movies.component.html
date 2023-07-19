@@ -8,7 +8,7 @@
     <a>Топы</a>
   </div>
   <div class="movies">
-    <div class="movie" *ngFor="let movie of movies">
+    <div *ngFor="let movie of (movies$ | async)?.films" class="movie">
       <a routerLink="{{movie.id}}">
         <img alt="movie-{{movie.title}}" src="{{movie.cover}}">
       </a>
