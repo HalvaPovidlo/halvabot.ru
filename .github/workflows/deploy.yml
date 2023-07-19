@@ -1,0 +1,33 @@
+name: deploy
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      S_NAME: ${{ secrets.YANDEX_SERVER_NAME }}
+      S_PASSWORD: ${{ secrets.YANDEX_SSH }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: shimataro/ssh-key-action@v2.3.1
+        with:
+          key: ${{ secrets.YANDEX_SSH }}
+          known_hosts: ${{ secrets.YANDEX_HOST }}
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --if-present
+      - name: Deploy
+        run: |
+          rsync -avze "ssh -o StrictHostKeyChecking=no" dist/* "$S_NAME":/home/halva/services/www/
