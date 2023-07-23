@@ -1,7 +1,7 @@
 <div class="header-container">
   <div class="header">
     <div class="header-logo">
-      <a routerLink="" class="logo">
+      <a class="logo" routerLink="">
         <img alt="logo" src="assets/logo.svg">
       </a>
     </div>
@@ -20,8 +20,9 @@
       </a>
     </div>
     <div class="header-right">
-      <p>{{currentUser?.username}}</p>
-      <img src="{{currentUser?.avatar || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnpwS-gtCv6FrsXwTM4S_m-tsMCc5OEt5dwGVa9E&s'}}">
+      <p>{{(currentUser$ | async)?.username}}</p>
+      <img
+        src="{{(currentUser$ | async)?.avatar || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnpwS-gtCv6FrsXwTM4S_m-tsMCc5OEt5dwGVa9E&s'}}">
     </div>
   </div>
 </div>

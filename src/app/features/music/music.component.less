@@ -1,0 +1,145 @@
+.music {
+  padding: 0 min(200px, 13vw);
+
+  &-container {
+    display: inline-flex;
+    margin-top: 5.5vh;
+    width: 100%;
+    height: 70vh;
+    align-items: center;
+
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.23);
+    backdrop-filter: blur(10px);
+  }
+
+  &-player {
+    //margin-left: min(279px, 27vw);
+    margin-left: 19.7%;
+    display: block;
+    height: min(669px, 61.9vh);
+    width: 40%;
+
+    &-cover {
+      margin-top: min(48px, 4.44vh);
+      margin-bottom: 40px;
+
+      & img {
+        border-radius: 50%;
+        width: min(240px, 25vh);
+        height: min(240px, 25vh);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    &-title {
+      color: #FFF;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font-family: Manrope, serif;
+      font-size: 1.3vw;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      width: min(440px, 22.9vw);
+      text-align: center;
+      margin: auto auto 8px;
+    }
+
+    &-artist {
+      color: #FFF;
+      text-align: center;
+      font-family: Manrope, serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 32px;
+    }
+
+    &-timer {
+      width: 90%;
+      height: 7px;
+      border-radius: 60px;
+      background: #6B6B6B;
+      margin: auto;
+
+      &-passed {
+        width: 22%;
+        height: 7px;
+        border-radius: 60px;
+        background: #FFF;
+      }
+
+      &-time {
+        margin-top: 12px;
+
+        & .left {
+          display: inline-block;
+          color: #FFF;
+          font-family: Manrope, serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+
+        & .right {
+          display: inline-block;
+          float: right;
+          color: #FFF;
+          font-family: Manrope, serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+    }
+  }
+
+  &-playlist-container {
+    margin-left: auto;
+    margin-right: 35px;
+    width: min(365px, 19vw);
+    height: min(600px, 64vh);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  &-playlist {
+    &-title {
+      padding: 38px 0 15px 33px;
+      color: #FFF;
+      font-family: Manrope, serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+}
+
+.points {
+  position: absolute;
+  left: 5.3%;
+  top: min(870px, 90.5vh);
+}
+
+.crosses {
+  position: absolute;
+  top: 9.5%;
+  right: 29.2%;
+}
+
+.pattern {
+  position: absolute;
+  bottom: -100px;
+  width: 98vw;
+  overflow: hidden;
+  z-index: -1;
+}

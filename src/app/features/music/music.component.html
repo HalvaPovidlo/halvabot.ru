@@ -1,1 +1,35 @@
-<p>music works!</p>
+<div class="music">
+  <div class="music-container">
+    <div class="music-player">
+      <div class="music-player-cover">
+        <img alt="cover" src="assets/korzh%20of%20the%20max.jpg">
+      </div>
+      <div class="music-player-title">
+        silence is also an answer// silence is also an answer// silence is also an answer//
+      </div>
+      <div class="music-player-artist">
+        KennyHoopla, Travis Barker
+      </div>
+      <div class="music-player-timer">
+        <div class="music-player-timer-passed"></div>
+        <div class="music-player-timer-time">
+          <div class="left"> 0:24</div>
+          <div class="right"> -3:40</div>
+        </div>
+      </div>
+      <div class="music-player-buttons"></div>
+    </div>
+    <div class="music-playlist-container">
+      <div class="music-playlist">
+        <div class="music-playlist-title"> Плейлисты</div>
+        <div class="music-playlist-search"></div>
+        <div *ngFor="let song of playlists" class="music-playlist-song">
+          {{song}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<img alt="points" class="points" src="assets/points.svg">
+<img alt="crosses" class="crosses" src="assets/crosses.svg">
+<img alt="pattern" class="pattern" src="assets/pattern3.svg">

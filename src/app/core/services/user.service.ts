@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 
 import {JwtService} from "./jwt.service";
 import {distinctUntilChanged, map} from "rxjs/operators";
@@ -21,7 +21,17 @@ export class UserService {
   }
 
   login() {
-    window.location.href = `http://178.154.221.12:9090/api/v1/login`;
+    window.location.href = `http://localhost:9090/api/v1/login`;
+  }
+
+
+  authenticate() {
+    this.getAllUsers()
+      .subscribe((data) => {
+        console.log(data);
+      }, (err) => {
+        console.log(err);
+      })
   }
 
   getAllUsers(): Observable<any> {
@@ -29,8 +39,14 @@ export class UserService {
       .get<any>("http://178.154.221.12:9090/api/v1/users");
   }
 
+  getCurrentUser(): Observable<any> {
+    return of(this.currentUser);
+  }
+
   setAuth(user: User): void {
-    this.jwtService.saveToken(user.token);
+    console.log(user);
+    this.jwtService.saveTokens(user.token, user.refresh_token);
+    this.jwtService.saveId(user.id);
     this.currentUserSubject.next(user);
   }
 }

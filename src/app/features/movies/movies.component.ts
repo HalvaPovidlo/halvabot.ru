@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MoviesService} from "../../core/services/movies.service";
 import {Observable, Subject} from "rxjs";
+import {UserService} from "../../core/services/user.service";
 
 @Component({
   selector: 'app-movies',
@@ -12,11 +13,13 @@ export class MoviesComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<void>();
 
   constructor(
-    private readonly moviesService: MoviesService
+    private readonly moviesService: MoviesService,
+    private readonly userService: UserService
   ) {
   }
 
   ngOnInit(): void {
+    // this.userService.authenticate();
     this.movies$ = this.moviesService.getAllMovies();
   }
 

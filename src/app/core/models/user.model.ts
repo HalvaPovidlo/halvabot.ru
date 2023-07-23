@@ -4,4 +4,5 @@ export interface User {
   refresh_token: string;
   token: string;
   username: string;
+  id: number;
 }
