@@ -22,8 +22,8 @@
     width: 40%;
 
     &-cover {
-      margin-top: min(48px, 4.44vh);
-      margin-bottom: 40px;
+      margin-top: min(48px, 3vh);
+      margin-bottom: min(40px, 4vh);
 
       & img {
         border-radius: 50%;
@@ -97,6 +97,43 @@
           font-weight: 500;
           line-height: normal;
         }
+      }
+    }
+
+    &-buttons {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-direction: row;
+
+      & .option-button {
+        margin-top: min(8px, 1vh);
+        background: transparent;
+        border: none;
+      }
+
+      & .central-buttons {
+        display: flex;
+        width: 47%;
+        align-items: center;
+        justify-content: space-between;
+        margin: min(8px, 1vh) auto auto;
+
+
+        & :first-child, :last-child {
+          width: min(40px, 4vh);
+          height: min(40px, 4vh);
+        }
+
+        & img {
+          width: min(80px, 7.5vh);
+          height: min(80px, 7.5vh);
+        }
+      }
+
+      & .imaginable-right-button {
+        height: min(40px, 4vh);
+        width: min(40px, 4vh);
       }
     }
   }
