@@ -18,6 +18,7 @@ import {JwtService} from "./core/services/jwt.service";
 import {UserService} from "./core/services/user.service";
 import {EMPTY} from "rxjs";
 
+
 export function initAuth(jwtService: JwtService, userService: UserService) {
   return () => (jwtService.getToken() ? userService.getCurrentUser() : EMPTY);
 }
@@ -38,7 +39,7 @@ export function initAuth(jwtService: JwtService, userService: UserService) {
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   providers: [
     {

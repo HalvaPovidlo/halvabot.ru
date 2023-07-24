@@ -1,14 +1,18 @@
+<img alt="points" class="points" src="assets/points.svg">
+<img alt="crosses" class="crosses" src="assets/crosses.svg">
+<img alt="pattern" class="pattern" src="assets/pattern3.svg">
 <div class="music">
   <div class="music-container">
     <div class="music-player">
       <div class="music-player-cover">
-        <img alt="cover" src="assets/korzh%20of%20the%20max.jpg">
+        <img alt="cover"
+             src="{{currentStatus.current.artwork_url || 'https://cdn.7tv.app/emote/63d0ed73d1e524d27861d1d6/4x.gif'}}">
       </div>
       <div class="music-player-title">
-        silence is also an answer// silence is also an answer// silence is also an answer//
+        {{currentStatus.current.title}}
       </div>
       <div class="music-player-artist">
-        KennyHoopla, Travis Barker
+        {{currentStatus.current.artist_name}}
       </div>
       <div class="music-player-timer">
         <div class="music-player-timer-passed"></div>
@@ -41,6 +45,3 @@
     </div>
   </div>
 </div>
-<img alt="points" class="points" src="assets/points.svg">
-<img alt="crosses" class="crosses" src="assets/crosses.svg">
-<img alt="pattern" class="pattern" src="assets/pattern3.svg">
