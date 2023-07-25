@@ -15,10 +15,15 @@
         {{currentStatus.current.artist_name}}
       </div>
       <div class="music-player-timer">
-        <div class="music-player-timer-passed"></div>
+        <div [style.width]="currentStatus.position / currentStatus.length * 100 + '%'"
+             class="music-player-timer-passed"></div>
         <div class="music-player-timer-time">
-          <div class="left"> 0:24</div>
-          <div class="right"> -3:40</div>
+          <div class="left">
+            {{currentStatus.position | minutes}}
+          </div>
+          <div class="right">
+            {{currentStatus.length | minutes}}
+          </div>
         </div>
       </div>
       <div class="music-player-buttons">

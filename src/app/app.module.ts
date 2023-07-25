@@ -17,6 +17,7 @@ import {ErrorInterceptor} from "./core/interceptors/error.interceptor";
 import {JwtService} from "./core/services/jwt.service";
 import {UserService} from "./core/services/user.service";
 import {EMPTY} from "rxjs";
+import {MinutesPipe} from "./core/pipes/minutes.pipe";
 
 
 export function initAuth(jwtService: JwtService, userService: UserService) {
@@ -32,7 +33,8 @@ export function initAuth(jwtService: JwtService, userService: UserService) {
     HomeComponent,
     MoviesComponent,
     MusicComponent,
-    MoviePageComponent
+    MoviePageComponent,
+    MinutesPipe
   ],
   imports: [
     BrowserModule,

@@ -22,15 +22,18 @@
     width: 40%;
 
     &-cover {
-      margin-top: min(48px, 3vh);
-      margin-bottom: min(40px, 4vh);
+      padding-top: min(48px, 3vh);
+      padding-bottom: min(40px, 4vh);
+      width: min(240px, 25vh);
+      height: min(240px, 25vh);
+      margin: 0 auto;
 
       & img {
         border-radius: 50%;
-        width: min(240px, 25vh);
+        width: 100%;
         height: min(240px, 25vh);
         display: block;
-        margin: 0 auto;
+        overflow: hidden;
       }
     }
 
