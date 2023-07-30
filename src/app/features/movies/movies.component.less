@@ -2,6 +2,7 @@
   display: grid;
   z-index: 100;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
   &-container {
     padding: 32px 200px;
   }
@@ -9,6 +10,7 @@
 
 .secondary-header {
   margin-bottom: 40px;
+
   & a {
     font-family: 'Manrope', serif;
     font-style: normal;
@@ -27,4 +29,37 @@
 .movie img {
   width: 200px;
   height: auto;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  transform: translateX(-20%);
+}
+
+.carousel-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 20%;
+  background-color: #292929;
+  color: wheat;
+
+  & img {
+    height: 200px;
+  }
+}
+
+.button-left {
+  position: relative;
+}
+
+.button-right {
+
 }

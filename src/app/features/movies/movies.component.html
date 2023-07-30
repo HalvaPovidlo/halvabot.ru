@@ -7,8 +7,37 @@
     <a>Треш</a>
     <a>Топы</a>
   </div>
+  <!--  <div class="carousel">-->
+  <!--    <div class="button-left">-->
+  <!--      <button (click)="decCurrentIndex()"> <</button>-->
+  <!--    </div>-->
+  <!--    <div class="button-right">-->
+  <!--      <button (click)="incCurrentIndex()"> ></button>-->
+  <!--    </div>-->
+  <!--    <div-->
+  <!--      [style.transform]="'translateX('+-20*currentIndex+'%)'"-->
+  <!--      class="inner">-->
+  <!--      &lt;!&ndash;      wtf&ndash;&gt;-->
+  <!--      <div-->
+  <!--        *ngFor="let anime of anime$ | async let i = index;"-->
+  <!--        class="carousel-item"-->
+  <!--      >-->
+  <!--        <img alt="movie-{{anime.title}}" src="{{anime.cover}}">-->
+  <!--      </div>-->
+  <!--      <div class="carousel-item"> item 1</div>-->
+  <!--      <div class="carousel-item"> item 2</div>-->
+  <!--      <div class="carousel-item"> item 3</div>-->
+  <!--      <div class="carousel-item"> item 4</div>-->
+  <!--      <div class="carousel-item"> item 5</div>-->
+  <!--      <div class="carousel-item"> item 6</div>-->
+  <!--      <div class="carousel-item"> item 7</div>-->
+  <!--      <div class="carousel-item"> item 8</div>-->
+  <!--      <div class="carousel-item"> item 9</div>-->
+  <!--      <div class="carousel-item"> item 10</div>-->
+  <!--    </div>-->
+  <!--  </div>-->
   <div class="movies">
-    <div *ngFor="let movie of (movies$ | async)?.films" class="movie">
+    <div *ngFor="let movie of movies$ | async" class="movie">
       <a routerLink="{{movie.id}}">
         <img alt="movie-{{movie.title}}" src="{{movie.cover}}">
       </a>

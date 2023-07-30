@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PlayerStatusModel} from "../../core/models/playerStatus.model";
+import {SocketService} from "../../core/services/socket.service";
 
 @Component({
   selector: 'app-music',
@@ -19,14 +20,16 @@ export class MusicComponent implements OnInit {
     radio: false
   };
 
-  constructor() {
+  constructor(private socketService: SocketService) {
   }
 
   ngOnInit(): void {
     const _this = this;
-    let socket = new WebSocket("ws://178.154.221.12:9092/api/v1/status");
 
-    socket.onmessage = function (event) {
+    let statusSocket = new WebSocket("ws://178.154.221.12:9092/api/v1/status");
+    let controlSocket = new WebSocket(`ws://178.154.221.12:9092/api/v1/control?token=${window.localStorage['jwtToken']}`);
+
+    statusSocket.onmessage = function (event) {
       _this.currentStatus = JSON.parse(event.data);
     };
   }

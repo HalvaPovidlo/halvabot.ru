@@ -6,7 +6,7 @@ export interface Movie {
   director: string;
   description: string;
   duration: string;
-  scores: { id: number, score: number }
+  scores: { [key: number]: number };
   kinopoisk: string;
   rating_kinopoisk: number;
   rating_imdb: number;

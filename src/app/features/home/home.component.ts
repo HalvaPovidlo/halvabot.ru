@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../core/services/user.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../core/models/user.model";
 
 @Component({
@@ -11,7 +11,8 @@ import {User} from "../../core/models/user.model";
 export class HomeComponent implements OnInit {
   constructor(
     private readonly userService: UserService,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
   ) {
   }
 
@@ -22,10 +23,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        console.log(params);
+        // console.log(params);
         if (Object.keys(params).length) {
           this.userService.setAuth(params as User);
         }
+        this.router.navigate(['/'])
       })
   }
 }

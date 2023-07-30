@@ -33,9 +33,9 @@ export class MoviePageComponent implements OnInit, OnDestroy {
     const id = this.route.snapshot.params['id'];
     this.movie$ = this.moviesService.getMovieById(id);
     this.users$ = this.userService.getAllUsers();
-    this.users$.subscribe(x => console.log(x));
+    // this.users$.subscribe(x => console.log(x));
     this.movie$.subscribe(x => {
-      console.log(x)
+      // console.log(x)
       this.movieId = x.id
     });
   }
