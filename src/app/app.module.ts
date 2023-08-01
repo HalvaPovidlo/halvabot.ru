@@ -18,6 +18,8 @@ import {MinutesPipe} from "./core/pipes/minutes.pipe";
 import {JwtService} from "./core/services/jwt.service";
 import {UserService} from "./core/services/user.service";
 import {EMPTY} from "rxjs";
+import {ModalComponent} from "./core/components/modal/modal.component";
+import { ScoresComponent } from './core/components/scores/scores.component';
 
 export function initAuth(jwtService: JwtService, userService: UserService) {
   return () => (jwtService.getToken() ? userService.getCurrentUser() : EMPTY);
@@ -33,7 +35,9 @@ export function initAuth(jwtService: JwtService, userService: UserService) {
     MoviesComponent,
     MusicComponent,
     MoviePageComponent,
-    MinutesPipe
+    MinutesPipe,
+    ModalComponent,
+    ScoresComponent
   ],
   imports: [
     BrowserModule,

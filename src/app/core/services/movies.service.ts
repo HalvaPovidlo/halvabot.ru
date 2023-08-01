@@ -30,5 +30,15 @@ export class MoviesService {
     return this.http
       .patch<any>(`${environment.filmsApiURL}/api/v1/films/${id}/score`, {score: score})
   }
+
+  postNewMovie(kinopoisk: string | number, score: number): Observable<any> {
+    return this.http
+      .post<any>(`${environment.filmsApiURL}/api/v1/films/new`, null, {
+        params: {
+          url: kinopoisk,
+          score: score
+        }
+      })
+  }
 }
 

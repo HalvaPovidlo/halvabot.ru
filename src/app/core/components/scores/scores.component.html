@@ -1,0 +1,5 @@
+<div class="buttons">
+  <ng-container *ngFor="let i of [-1, 0, 1, 2]">
+    <button (click)="handleClick(i)" [ngClass]="currentButton === i ? 'active' : ''" type="button"> {{i}} </button>
+  </ng-container>
+</div>
