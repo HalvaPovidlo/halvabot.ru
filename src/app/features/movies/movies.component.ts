@@ -44,8 +44,6 @@ export class MoviesComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   closeModal() {
-    this.movieFormGroup.get('kinopoisk')?.setValue('');
-    this.movieFormGroup.get('score')?.setValue('');
     this.modalService.close();
   }
 
