@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Observable, Subject} from "rxjs";
+import {Observable, share, Subject} from "rxjs";
 import {Movie} from "../../core/models/movie.model";
 import {MoviesService} from "../../core/services/movies.service";
 import {UserService} from "../../core/services/user.service";
@@ -31,13 +31,15 @@ export class MoviePageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    this.movie$ = this.moviesService.getMovieById(id);
-    this.users$ = this.userService.getAllUsers();
+    this.movie$ = this.moviesService.getMovieById(id).pipe(
+      share()
+    );
+    // this.users$ = this.userService.getAllUsers();
     // this.users$.subscribe(x => console.log(x));
-    this.movie$.subscribe(x => {
-      // console.log(x)
-      this.movieId = x.id
-    });
+    // this.movie$.subscribe(x => {
+    // console.log(x)
+    // this.movieId = x.id
+    // });
   }
 
   ngOnDestroy(): void {
