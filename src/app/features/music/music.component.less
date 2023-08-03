@@ -129,8 +129,9 @@
         }
 
         & img {
-          width: min(80px, 7.5vh);
-          height: min(80px, 7.5vh);
+          width: min(65px, 7vh);
+          height: min(65px, 7vh);
+          cursor: pointer;
         }
       }
 
@@ -153,13 +154,40 @@
 
   &-playlist {
     &-title {
-      padding: 38px 0 15px 33px;
+      padding: 38px 15px 15px 33px;
       color: #FFF;
       font-family: Manrope, serif;
       font-size: 24px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+
+      & > p {
+        font-size: 0.9vw;
+      }
+    }
+
+    &-search {
+      padding: 0 0 15px 33px;
+
+      & > input {
+        border: none;
+        display: inline-flex;
+        padding: 8px 15px 8px 20px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 184px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.10);
+        color: #FFF;
+        leading-trim: both;
+        text-edge: cap;
+        font-family: Manrope, serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;;
+      }
     }
   }
 }

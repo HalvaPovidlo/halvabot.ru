@@ -41,12 +41,12 @@ export class MoviesComponent implements OnInit, OnDestroy, OnChanges {
     console.log(kinopoisk, score);
     this.moviesService.postNewMovie(+(kinopoisk as string | number), +(score as string))
       .subscribe()
+    // this.router.navigate([`/movies/${kinopoisk}`])
   }
 
   closeModal() {
     this.modalService.close();
     const kinopoisk = this.movieFormGroup.get('kinopoisk')?.value;
-    // this.router.navigate([`/movies/${kinopoisk}`])
   }
 
   setScore(score: string) {

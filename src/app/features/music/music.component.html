@@ -31,9 +31,9 @@
           <img alt="options-button" src="assets/options.svg">
         </button>
         <div class="central-buttons">
-          <img alt="radio" src="assets/radio.svg">
-          <img alt="play" src="assets/play.svg">
-          <img alt="repeat" src="assets/repeat.svg">
+          <img (click)="handleClick('radio')" alt="radio" src="assets/radio.svg">
+          <img (click)="handleClick('skip')" alt="skip" src="assets/skip.svg">
+          <img (click)="handleClick('loop')" alt="repeat" src="assets/repeat.svg">
         </div>
         <div class="imaginable-right-button">
         </div>
@@ -41,8 +41,13 @@
     </div>
     <div class="music-playlist-container">
       <div class="music-playlist">
-        <div class="music-playlist-title"> Плейлисты</div>
-        <div class="music-playlist-search"></div>
+        <div class="music-playlist-title"> Поставить песню
+          <p>(ну вот да, пока так, вводи чё там хочешь и жми энтер
+            или тыкай кнопку хз)</p>
+        </div>
+        <div class="music-playlist-search">
+          <input (keydown.enter)="handleClick('play')" [formControl]="requestedSong">
+        </div>
         <div *ngFor="let song of playlists" class="music-playlist-song">
           {{song}}
         </div>
