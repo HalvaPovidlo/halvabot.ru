@@ -37,7 +37,10 @@ export class UserService {
 
   getAllUsers(): Observable<any> {
     return this.http
-      .get<any>(`${environment.authApiURL}/api/v1/users`);
+      .get<any>(`${environment.authApiURL}/api/v1/users`)
+      .pipe(
+        map(obj => obj?.users)
+      )
   }
 
   getCurrentUser(): Observable<any> {

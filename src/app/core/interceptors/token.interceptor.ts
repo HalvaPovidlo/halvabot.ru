@@ -1,10 +1,9 @@
 import {Injectable} from "@angular/core";
 import {HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest,} from "@angular/common/http";
-import {BehaviorSubject, filter, Observable, switchMap, take, throwError} from "rxjs";
+import {BehaviorSubject, Observable, switchMap, throwError} from "rxjs";
 import {JwtService} from "../services/jwt.service";
-import {Router} from "@angular/router";
 import {catchError} from "rxjs/operators";
-import {UserService} from "../services/user.service";
+import {Router} from "@angular/router";
 
 @Injectable({providedIn: "root"})
 export class TokenInterceptor implements HttpInterceptor {
@@ -15,8 +14,8 @@ export class TokenInterceptor implements HttpInterceptor {
 
   constructor(
     private readonly jwtService: JwtService,
-    private readonly userService: UserService,
-    private readonly router: Router) {
+    private readonly router: Router
+  ) {
   }
 
   intercept(
@@ -55,20 +54,26 @@ export class TokenInterceptor implements HttpInterceptor {
 
       return this.jwtService.refreshToken().pipe(
         switchMap((token: any) => {
-          // console.log(token);
+          console.log(token);
           this.isRefreshing = false;
           this.refreshTokenSubject.next(token);
           return next.handle(this.addToken(request, token))
         })
       )
     } else {
-      return this.refreshTokenSubject.pipe(
-        filter((token) => token != null),
-        take(1),
-        switchMap((jwt) => {
-          return next.handle(this.addToken(request, jwt))
-        })
-      )
+      console.log('else route');
+      window.localStorage.removeItem('jwtToken');
+      window.localStorage.removeItem('refreshToken');
+      window.localStorage.removeItem('id');
+      return this.router.navigate(['login']);
+      // return this.refreshTokenSubject.pipe(
+      //   filter((token) => token != null),
+      //   take(1),
+      //   switchMap((jwt) => {
+      //     console.log(jwt);
+      //     return next.handle(this.addToken(request, jwt))
+      //   })
+      // )
     }
   }
 }

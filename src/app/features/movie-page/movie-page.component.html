@@ -1,29 +1,29 @@
 <div class="movie-page-container">
   <div class="movie-page">
-    <img alt="cover" class="movie-page-cover" src="{{(movie$ | async)?.cover}}">
+    <img alt="cover" class="movie-page-cover" src="{{movie.cover}}">
     <div class="movie-page-desc">
-      <div class="movie-page-title"> {{ (movie$ | async)?.title }}</div>
-      <div class="movie-page-title-original"> {{(movie$ | async)?.title_original}} </div>
+      <div class="movie-page-title"> {{movie.title }}</div>
+      <div class="movie-page-title-original"> {{movie.title_original}} </div>
       <div class="movie-page-desc-pairs">
         <div class="row">
           <div class="title">Режиссёр</div>
-          <div class="value">{{(movie$ | async)?.director || 'Неизвестно'}}</div>
+          <div class="value">{{movie.director || 'Неизвестно'}}</div>
         </div>
         <div class="row">
           <div class="title">Длительность</div>
-          <div class="value">{{(movie$ | async)?.duration}}</div>
+          <div class="value">{{movie.duration}}</div>
         </div>
         <div class="row">
           <div class="title">Жанры</div>
-          <div class="value">{{(movie$ | async)?.genres}}</div>
+          <div class="value">{{movie.genres}}</div>
         </div>
         <div class="row">
           <div class="title">Ссылки</div>
           <div class="value">
-            <a href="{{(movie$ | async)?.kinopoisk}}">
+            <a href="{{movie.kinopoisk}}">
               <img alt="kinopoisk_icon" src="../../../assets/kinopoisk.png">
             </a>
-            <span>{{(movie$ | async)?.rating_kinopoisk}}</span>
+            <span>{{movie.rating_kinopoisk}}</span>
           </div>
         </div>
       </div>
@@ -31,10 +31,11 @@
     <div class="movie-page-score">
       <div class="score">
         <img alt="star" src="assets/star.svg"/>
-        <p> {{(movie$ | async)?.rating_average?.toFixed(2)}} </p>
+        <p> {{(movie$ | async)?.rating_halva?.toFixed(2) || '1.00'}} </p>
       </div>
       <div class="buttons">
-        <button (click)="score(i)" *ngFor="let i of [-1, 0, 1, 2]"> {{i}} </button>
+        <button (click)="score(i)" *ngFor="let i of [-1, 0, 1, 2];"
+                [ngClass]="i===currentUserScore ? 'active' : ''"> {{i}} </button>
       </div>
     </div>
     <div class='movie-page-text'>

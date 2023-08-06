@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {of, tap} from "rxjs";
+import {from, of, tap} from "rxjs";
 import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {catchError} from "rxjs/operators";
@@ -41,24 +41,28 @@ export class JwtService {
   }
 
   refreshToken() {
-    return this.http
-      .post<any>(`${environment.authApiURL}/api/v1/refresh`, null, {
-        params: {
-          id: window.localStorage['id'],
-          refresh: this.getRefreshToken(),
-        }
-      })
-      .pipe(
-        tap((user) => {
-          // console.log('user:', user);
-          this.saveTokens(user.token, user.refresh_token);
-          // return of(user);
-        }),
-        catchError(() => {
-          // console.log('Поймал ошибку')
-          this.logout();
-          return of(false);
+    if (!this.getRefreshToken() || this.getRefreshToken() === 'undefined') {
+      return from(this.router.navigate(['/login']));
+    } else {
+      return this.http
+        .post<any>(`${environment.authApiURL}/api/v1/refresh`, null, {
+          params: {
+            id: window.localStorage['id'],
+            refresh: this.getRefreshToken(),
+          }
         })
-      );
+        .pipe(
+          tap((user) => {
+            // console.log('user:', user);
+            this.saveTokens(user.token, user.refresh_token);
+            // return of(user);
+          }),
+          catchError(() => {
+            // console.log('Поймал ошибку')
+            this.logout();
+            return of(false);
+          })
+        );
+    }
   }
 }

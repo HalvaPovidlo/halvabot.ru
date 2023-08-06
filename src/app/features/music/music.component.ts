@@ -58,6 +58,11 @@ export class MusicComponent implements OnInit {
       })
       this.requestedSong.setValue('');
     }
+    // if (buttonType == 'disconnect') {
+    //   this.sendMessage({
+    //     type: 'disconnect'
+    //   })
+    // }
   }
 
   ngOnInit(): void {
@@ -69,11 +74,5 @@ export class MusicComponent implements OnInit {
     this.statusSocket.onmessage = function (event) {
       _this.currentStatus = JSON.parse(event.data);
     };
-
-    // this.handleClick('disconnect');
-
-    // this.controlSocket.onopen = () => {
-    //   this.sendMessage({type: 'loop_off'})
-    // }
   }
 }

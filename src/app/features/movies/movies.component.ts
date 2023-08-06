@@ -1,11 +1,9 @@
 import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
-import {MoviesService} from "../../core/services/movies.service";
 import {Observable, Subject} from "rxjs";
-import {UserService} from "../../core/services/user.service";
 import {map} from "rxjs/operators";
 import {ModalService} from "../../core/services/modal.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
+import {MoviesService} from "../../core/services/movies.service";
 
 @Component({
   selector: 'app-movies',
@@ -25,8 +23,8 @@ export class MoviesComponent implements OnInit, OnDestroy, OnChanges {
 
   constructor(
     private readonly moviesService: MoviesService,
-    private readonly userService: UserService,
-    private readonly router: Router,
+    // private readonly userService: UserService,
+    // private readonly router: Router,
     protected modalService: ModalService
   ) {
   }

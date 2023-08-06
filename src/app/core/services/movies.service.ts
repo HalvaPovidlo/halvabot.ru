@@ -22,13 +22,19 @@ export class MoviesService {
   }
 
   getMovieById(id: number): Observable<any> {
-    return this.http
-      .get<any>(`${environment.filmsApiURL}/api/v1/public/films/${id}/get`)
+    const token = window.localStorage.getItem('jwtToken');
+    const url = token && token !== 'undefined'
+      ? `${environment.filmsApiURL}/api/v1/films/${id}/get`
+      : `${environment.filmsApiURL}/api/v1/public/films/${id}/get`
+    return this.http.get<any>(url)
   }
 
   score(id: number, score: number): Observable<any> {
+    console.log(score);
     return this.http
-      .patch<any>(`${environment.filmsApiURL}/api/v1/films/${id}/score`, {score: score})
+      .patch<any>(`${environment.filmsApiURL}/api/v1/films/${id}/score`,
+        null,
+        {params: {score: score}})
   }
 
   postNewMovie(kinopoisk: string | number, score: number): Observable<any> {
