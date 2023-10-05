@@ -6,24 +6,20 @@
     <a>Фильмы</a>
     <a>Треш</a>
     <a>Топы</a>
-    <button (click)="modalService.open('modal-1')" style="
-    border-radius: 15px;
-    background: #202020;
-    display: flex;
-    color: #FFF;
-    text-align: center;
-    font-family: Manrope, serif;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    height: 60px;
-    padding: 9px 17px 9px 16px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    float: right;
-"> Добавить фильм
-    </button>
+    <div class="search">
+      <span class="form-group">
+      <input class="form-control" id="search-text" aria-describedby="search-text"
+             [(ngModel)]="searchText" placeholder="Поиск"
+             autofocus>
+      </span>
+      <div class="list-group list-group-flush" *ngIf="searchText != ''">
+          <a class="list-group-item" routerLink="{{movie.id}}" *ngFor="let movie of movies$ | async | filter: searchText">
+            <div>
+              {{movie.title}}
+            </div>
+          </a>
+      </div>
+    </div>
   </div>
   <!--  <div class="carousel">-->
   <!--    <div class="button-left">-->
@@ -63,38 +59,38 @@
   </div>
 </div>
 
-<app-modal id="modal-1" style="position: relative">
-  <h1>Добавить фильм</h1>
-  <form (ngSubmit)="handleSubmit()" [formGroup]="movieFormGroup">
-    <label for="kinopoisk">Ссылка на кинопоиск(или id этого фильма): </label>
-    <input formControlName="kinopoisk" id="kinopoisk" type="text">
-    <app-scores (scoreEvent)="setScore($event)" style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5%;">
-    </app-scores>
-    <button (click)="closeModal()" [disabled]="!movieFormGroup.valid"
-            style="
-            position: absolute;
-            bottom: 10%;
-            left: calc(50% - 5vw);
-            width: 10vw;
-            height: 7vh;
-            border-radius: 15px;
-            background: #202020;
-            display: flex;
-            color: #FFF;
-            text-align: center;
-            font-family: Manrope, serif;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            padding: 9px 17px 9px 16px;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;" type="submit">
-      Добавить
-    </button>
-  </form>
-</app-modal>
+<!--<app-modal id="modal-1" style="position: relative">-->
+<!--  <h1>Добавить фильм</h1>-->
+<!--  <form (ngSubmit)="handleSubmit()" [formGroup]="movieFormGroup">-->
+<!--    <label for="kinopoisk">Ссылка на кинопоиск(или id этого фильма): </label>-->
+<!--    <input formControlName="kinopoisk" id="kinopoisk" type="text">-->
+<!--    <app-scores (scoreEvent)="setScore($event)" style="-->
+<!--    display: flex;-->
+<!--    align-items: center;-->
+<!--    justify-content: center;-->
+<!--    margin-top: 5%;">-->
+<!--    </app-scores>-->
+<!--    <button (click)="closeModal()" [disabled]="!movieFormGroup.valid"-->
+<!--            style="-->
+<!--            position: absolute;-->
+<!--            bottom: 10%;-->
+<!--            left: calc(50% - 5vw);-->
+<!--            width: 10vw;-->
+<!--            height: 7vh;-->
+<!--            border-radius: 15px;-->
+<!--            background: #202020;-->
+<!--            display: flex;-->
+<!--            color: #FFF;-->
+<!--            text-align: center;-->
+<!--            font-family: Manrope, serif;-->
+<!--            font-style: normal;-->
+<!--            font-weight: 700;-->
+<!--            line-height: normal;-->
+<!--            padding: 9px 17px 9px 16px;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            flex-shrink: 0;" type="submit">-->
+<!--      Добавить-->
+<!--    </button>-->
+<!--  </form>-->
+<!--</app-modal>-->

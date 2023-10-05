@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import "_themes";
+
 @font-face {
   font-family: 'Manrope';
   src: url('assets/Manrope.ttf');
@@ -9,15 +10,14 @@
   padding: 0;
 }
 
-html, body {
+body {
   height: 100%;
-  background: linear-gradient(141.68deg, #302C49 14.75%, #292929 87.01%) no-repeat fixed;
-  z-index: -2;
+  background: var(--main-content-background-color) no-repeat fixed;
+  //z-index: -2;
   position: relative;
   box-sizing: border-box;
-  //background: #202020;
 }
 
-//input {
-//  all: unset;
-//}
+input {
+  all: unset;
+}

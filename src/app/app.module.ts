@@ -6,7 +6,7 @@ import {AuthComponent} from './core/auth/auth.component';
 import {HeaderComponent} from './core/layout/header/header.component';
 import {FooterComponent} from './core/layout/footer/footer.component';
 import {HomeComponent} from './features/home/home.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MoviesComponent} from './features/movies/movies.component';
 import {MusicComponent} from './features/music/music.component';
@@ -21,8 +21,11 @@ import {ModalComponent} from "./core/components/modal/modal.component";
 import {ScoresComponent} from './core/components/scores/scores.component';
 import {NotificationComponent} from './core/components/notification/notification.component';
 import {TokenInterceptor} from "./core/interceptors/token.interceptor";
+import {FilterPipe} from "./core/pipes/filter.pipe";
 
 export function initAuth(jwtService: JwtService, userService: UserService) {
+  const theme = window.localStorage.getItem('theme');
+  document.documentElement.setAttribute("data-theme", theme == null ? 'blue' : theme);
   return () => (jwtService.getToken() ? userService.getCurrentUser() : EMPTY);
 }
 
@@ -37,6 +40,7 @@ export function initAuth(jwtService: JwtService, userService: UserService) {
     MusicComponent,
     MoviePageComponent,
     MinutesPipe,
+    FilterPipe,
     ModalComponent,
     ScoresComponent,
     NotificationComponent
@@ -47,6 +51,7 @@ export function initAuth(jwtService: JwtService, userService: UserService) {
     ReactiveFormsModule,
     HttpClientModule,
     NgOptimizedImage,
+    FormsModule,
   ],
   providers: [
     {

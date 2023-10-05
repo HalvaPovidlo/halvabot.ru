@@ -15,6 +15,7 @@ export class MoviesComponent implements OnInit, OnDestroy, OnChanges {
   anime$: Observable<any>
   destroy$ = new Subject<void>();
   currentIndex = 2;
+  searchText = '';
 
   movieFormGroup = new FormGroup({
     kinopoisk: new FormControl(''),
@@ -70,7 +71,7 @@ export class MoviesComponent implements OnInit, OnDestroy, OnChanges {
     this.movies$.pipe(
       map(movie => movie.filter((movie: any) => movie.genres.includes('аниме')))
     ).subscribe(x => console.log('Всего 27 аниме smh', x));
-    // this.movies$.subscribe(x => console.log(x));
+    this.movies$.subscribe(x => console.log(x));
     // this.anime$ = this.movies$.map();
     // this.anime$.subscribe(x => console.log(x))
   }

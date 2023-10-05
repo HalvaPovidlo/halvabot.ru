@@ -20,6 +20,16 @@
       <p>{{(currentUser$ | async)?.username}}</p>
       <img routerLink="/login"
            src="{{(currentUser$ | async)?.avatar || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnpwS-gtCv6FrsXwTM4S_m-tsMCc5OEt5dwGVa9E&s'}}">
+      <div class="theme-switcher">
+        <label class="switch">
+          <input
+            type="checkbox"
+            [checked]="isBlueTheme"
+            (change)="onThemeSwitchChange()"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
     </div>
   </div>
 </div>
