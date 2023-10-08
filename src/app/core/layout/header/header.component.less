@@ -2,29 +2,33 @@
   overflow: hidden;
   display: flex;
   font-family: Manrope, serif;
-  margin: 0 auto;
   padding: 0 min(200px, 11vw);
+  margin: min(45px, 4.2vh) auto 0;
+  height: min(80px, 4.5vw);
 
   &-logo {
+    display: flex;
+    align-items: center;
     background: rgba(0, 0, 0, 0.15);
-    margin-top: 45px;
     margin-right: 16px;
-    padding: 16px 40px;
+    padding: min(16px, 1.4vh) min(40px, 3.8vh);
     border-radius: 20px;
 
-    & img {
-      margin-top: 8px;
-      height: 26px;
+    &-link {
+      height: 27px;
+
+      & img {
+        height: 24px;
+      }
     }
   }
 
   &-left {
     background: rgba(0, 0, 0, 0.15);
-    margin-top: 40px;
-    margin-right: 8px;
-    padding: 16px 32px;
+    padding: min(16px, 1vw) min(64px, 3.3vw);
     border-radius: 20px;
     backdrop-filter: blur(10px);
+    gap: 40px;
 
     float: left;
     display: flex;
@@ -44,20 +48,16 @@
   & a {
     text-align: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1vw;
     line-height: 25px;
     border-radius: 4px;
-
-    &:not(:last-child) {
-      padding-right: 48px;
-    }
   }
 
   &-right {
     background: rgba(0, 0, 0, 0.15);
-    margin-top: 40px;
     margin-right: 8px;
     padding: 16px 32px;
+    backdrop-filter: blur(10px);
     border-radius: 20px;
 
     display: flex;
@@ -67,7 +67,16 @@
     align-items: center;
     justify-content: space-between;
 
+    &-login {
+      font-size: 1vw;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
     .theme-switcher {
+      display: none;
       margin-left: 30px;
       .switch {
         position: relative;
@@ -127,7 +136,7 @@
       color: #FFF;
       text-align: center;
       font-family: Manrope, serif;
-      font-size: 18px;
+      font-size: 1vw;
       font-style: normal;
       font-weight: 800;
       line-height: normal;
@@ -135,8 +144,8 @@
     }
 
     & img {
-      height: 50px;
-      width: 50px;
+      height: min(50px, 2.6vw);
+      width: min(50px, 2.6vw);
       border-radius: 50%;
     }
   }

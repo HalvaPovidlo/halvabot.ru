@@ -1,7 +1,7 @@
 <div class="header-container">
   <div class="header">
     <div class="header-logo">
-      <a class="logo" routerLink="">
+      <a class="header-logo-link" routerLink="">
         <img alt="logo" src="assets/logo.svg">
       </a>
     </div>
@@ -17,9 +17,11 @@
       </a>
     </div>
     <div class="header-right">
-      <p>{{(currentUser$ | async)?.username}}</p>
-      <img routerLink="/login"
-           src="{{(currentUser$ | async)?.avatar || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnpwS-gtCv6FrsXwTM4S_m-tsMCc5OEt5dwGVa9E&s'}}">
+      <div class="header-right-login" routerLink="/login">
+        <p>{{(currentUser$ | async)?.username || 'Войти'}}</p>
+        <img
+          src="{{(currentUser$ | async)?.avatar || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnpwS-gtCv6FrsXwTM4S_m-tsMCc5OEt5dwGVa9E&s'}}">
+      </div>
       <div class="theme-switcher">
         <label class="switch">
           <input

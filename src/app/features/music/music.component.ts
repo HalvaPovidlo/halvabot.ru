@@ -3,6 +3,7 @@ import {PlayerStatusModel} from "../../core/models/playerStatus.model";
 import {SocketService} from "../../core/services/socket.service";
 import {FormControl} from "@angular/forms";
 import {Subscription} from "rxjs";
+import {JwtService} from "../../core/services/jwt.service";
 
 @Component({
   selector: 'app-music',
@@ -25,7 +26,7 @@ export class MusicComponent implements OnInit {
   controlSocket: WebSocket;
   requestedSong = new FormControl('');
 
-  constructor(private socketService: SocketService) {
+  constructor(private jwtService: JwtService) {
   }
 
   sendMessage(params: any) {
@@ -35,7 +36,10 @@ export class MusicComponent implements OnInit {
   }
 
   handleClick(buttonType: string) {
-    console.log('handleClick is called');
+    if(this.jwtService.getToken() == '' || this.jwtService.getToken() == undefined) {
+      // call notification service
+      return ;
+    }
     if (buttonType == 'radio') {
       this.sendMessage(
         {type: this.currentStatus.radio ? 'radio_off' : 'radio'}
@@ -70,7 +74,10 @@ export class MusicComponent implements OnInit {
     const _this = this;
 
     this.statusSocket = new WebSocket("ws://178.154.221.12:9092/api/v1/status");
-    this.controlSocket = new WebSocket(`ws://178.154.221.12:9092/api/v1/control?token=${window.localStorage['jwtToken']}`);
+    if(this.jwtService.getToken() != '' && this.jwtService.getToken() != undefined) {
+      this.controlSocket = new WebSocket(`ws://178.154.221.12:9092/api/v1/control?token=${window.localStorage['jwtToken']}`);
+    }
+
 
     this.statusSocket.onmessage = function (event) {
       _this.currentStatus = JSON.parse(event.data);

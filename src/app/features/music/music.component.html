@@ -6,13 +6,13 @@
     <div class="music-player">
       <div class="music-player-cover">
         <img alt="cover"
-             src="{{currentStatus.current.artwork_url || 'https://cdn.7tv.app/emote/63d0ed73d1e524d27861d1d6/4x.gif'}}">
+             src="{{currentStatus.current?.artwork_url || 'https://cdn.7tv.app/emote/63d0ed73d1e524d27861d1d6/4x.gif'}}">
       </div>
       <div class="music-player-title">
-        {{currentStatus.current.title}}
+        {{currentStatus.current?.title}}
       </div>
       <div class="music-player-artist">
-        {{currentStatus.current.artist_name}}
+        {{currentStatus.current?.artist_name}}
       </div>
       <div class="music-player-timer">
         <div [style.width]="currentStatus.position / currentStatus.length * 100 + '%'"

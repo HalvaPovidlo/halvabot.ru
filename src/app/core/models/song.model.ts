@@ -7,6 +7,6 @@ export interface SongModel {
   service?: string,
   artist_name?: string,
   artist_url?: string,
-  artwork_url?: string,
+  artwork_url?: string | null,
   thumbnail_url?: string,
 }
