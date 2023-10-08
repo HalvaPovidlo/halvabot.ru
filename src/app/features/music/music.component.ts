@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PlayerStatusModel} from "../../core/models/playerStatus.model";
 import {SocketService} from "../../core/services/socket.service";
 import {FormControl} from "@angular/forms";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-music',

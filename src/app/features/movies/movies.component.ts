@@ -48,6 +48,10 @@ export class MoviesComponent implements OnInit, OnDestroy, OnChanges {
     const kinopoisk = this.movieFormGroup.get('kinopoisk')?.value;
   }
 
+  onKeydown(e: any) {
+    console.log('qqq')
+  }
+
   setScore(score: string) {
     this.movieFormGroup.get('score')?.setValue(score)
   }

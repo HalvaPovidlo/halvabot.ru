@@ -1,12 +1,17 @@
+.button {
+  background: transparent;
+  border: none;
+}
+
 .music {
-  padding: 0 min(200px, 13vw);
+  padding: 0 min(200px, 11vw);
+  display: flex;
+  justify-content: space-between;
 
   &-container {
-    display: inline-flex;
     margin-top: 5.5vh;
-    width: 100%;
-    height: 70vh;
-    align-items: center;
+    width: 49%;
+    height: 75vh;
 
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -14,24 +19,91 @@
     backdrop-filter: blur(10px);
   }
 
+  &-secondary-container {
+    margin-top: 5.5vh;
+    width: 49%;
+    height: 75vh;
+
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.23);
+    backdrop-filter: blur(10px);
+    .tab {
+      display: flex;
+      overflow: hidden;
+      padding: min(30px, 1.6vw) min(40px, 2vw) 0;
+      gap: 20px;
+
+      & > button {
+        display: flex;
+        gap: 5px;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 7px 16px;
+        transition: 0.3s;
+        border-radius: 10px;
+
+        color: rgba(255, 255, 255, 0.30);
+        font-family: Manrope, serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+
+        &:hover{
+          background: rgba(255, 255, 255, 0.10);
+        }
+
+        &:active {
+          color: #FFF;
+        }
+
+        & > img {
+          fill: green;
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+  .custom-select {
+    display: flex;
+    gap: 10px;
+    padding: min(30px, 1.6vw) min(40px, 2vw);
+
+    .vk {
+      display: flex;
+      height: 40px;
+      width: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.10);
+      align-content: center;
+      justify-content: center;
+      > img {
+        width: 24px;
+      }
+    }
+  }
+  }
+
   &-player {
-    //margin-left: min(279px, 27vw);
-    margin-left: 19.7%;
-    display: block;
-    height: min(669px, 61.9vh);
-    width: 40%;
+    margin: min(60px, 5vh) 0;
+    display: flex;
+    height: calc(70vh - min(60px, 5vh));
+    flex-direction: column;
 
     &-cover {
-      padding-top: min(48px, 3vh);
-      padding-bottom: min(40px, 4vh);
-      width: min(240px, 25vh);
-      height: min(240px, 25vh);
+      max-width: min(300px, 27.7vh);
+      max-height: min(300px, 27.7vh);
+      aspect-ratio: 1 / 1;
       margin: 0 auto;
 
       & img {
         border-radius: 50%;
-        width: 100%;
-        height: min(240px, 25vh);
+        width: min(300px, 27.7vh);
+        aspect-ratio: 1 / 1;
         display: block;
         overflow: hidden;
       }
@@ -49,14 +121,14 @@
       line-height: normal;
       width: min(440px, 22.9vw);
       text-align: center;
-      margin: auto auto 8px;
+      margin: 32px auto 8px;
     }
 
     &-artist {
       color: #FFF;
       text-align: center;
       font-family: Manrope, serif;
-      font-size: 18px;
+      font-size: 1vw;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
@@ -64,11 +136,11 @@
     }
 
     &-timer {
-      width: 90%;
+      width: 71%;
       height: 7px;
       border-radius: 60px;
       background: #6B6B6B;
-      margin: auto;
+      margin: auto auto 50px;
 
       &-passed {
         width: 22%;
@@ -84,7 +156,7 @@
           display: inline-block;
           color: #FFF;
           font-family: Manrope, serif;
-          font-size: 18px;
+          font-size: 0.9vw;
           font-style: normal;
           font-weight: 500;
           line-height: normal;
@@ -95,7 +167,7 @@
           float: right;
           color: #FFF;
           font-family: Manrope, serif;
-          font-size: 18px;
+          font-size: 0.9vw;
           font-style: normal;
           font-weight: 500;
           line-height: normal;
@@ -104,73 +176,51 @@
     }
 
     &-buttons {
-      width: 90%;
-      margin: auto;
       display: flex;
-      flex-direction: row;
+      flex-grow: 1;
+      align-content: center;
+      width: 71%;
+      height: auto;
+      margin-top: auto;
+      margin-left: auto;
+      margin-right: auto;
 
-      & .option-button {
-        margin-top: min(8px, 1vh);
+      & .left-button {
         background: transparent;
         border: none;
+        > img {
+          width: min(40px, 2vw);
+          height: min(40px, 2vw);
+        }
       }
 
       & .central-buttons {
         display: flex;
-        width: 47%;
-        align-items: center;
-        justify-content: space-between;
-        margin: min(8px, 1vh) auto auto;
+        gap: 50px;
+        align-content: center;
+        margin: auto;
 
 
-        & :first-child, :last-child {
-          width: min(40px, 4vh);
-          height: min(40px, 4vh);
+        & :first-child > img, :last-child > img {
+          width: min(40px, 2vw);
+          height: min(40px, 2vw);
         }
 
         & img {
-          width: min(65px, 7vh);
-          height: min(65px, 7vh);
+          width: min(80px, 4vw);
+          height: min(80px, 4vw);
           cursor: pointer;
         }
       }
-
-      & .imaginable-right-button {
-        height: min(40px, 4vh);
-        width: min(40px, 4vh);
-      }
     }
-  }
-
-  &-playlist-container {
-    margin-left: auto;
-    margin-right: 35px;
-    width: min(365px, 19vw);
-    height: min(600px, 64vh);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(0, 0, 0, 0.15);
   }
 
   &-playlist {
-    &-title {
-      padding: 38px 15px 15px 33px;
-      color: #FFF;
-      font-family: Manrope, serif;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-
-      & > p {
-        font-size: 0.9vw;
-      }
-    }
+    width: 70%;
 
     &-search {
-      padding: 0 0 15px 33px;
-
       & > input {
+        width: 100%;
         border: none;
         display: inline-flex;
         padding: 8px 15px 8px 20px;

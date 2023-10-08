@@ -10,7 +10,9 @@
       <span class="form-group">
       <input class="form-control" id="search-text" aria-describedby="search-text"
              [(ngModel)]="searchText" placeholder="Поиск"
-             autofocus>
+             autofocus
+            (keydown)="onKeydown($event)"
+      >
       </span>
       <div class="list-group list-group-flush" *ngIf="searchText != ''">
           <a class="list-group-item" routerLink="{{movie.id}}" *ngFor="let movie of movies$ | async | filter: searchText">

@@ -27,24 +27,44 @@
         </div>
       </div>
       <div class="music-player-buttons">
-        <button class="option-button" type="button">
-          <img alt="options-button" src="assets/options.svg">
+        <button class="left-button button" type="button">
+          <img (click)="handleClick('radio')" alt="radio" src="assets/radio.svg">
         </button>
         <div class="central-buttons">
-          <img (click)="handleClick('radio')" alt="radio" src="assets/radio.svg">
-          <img (click)="handleClick('skip')" alt="skip" src="assets/skip.svg">
-          <img (click)="handleClick('loop')" alt="repeat" src="assets/repeat.svg">
+          <button class="central-button button loop" type="button">
+            <img (click)="handleClick('loop')" alt="repeat" src="assets/repeat.svg">
+          </button>
+          <button class="central-button button skip" type="button">
+            <img (click)="handleClick('skip')" alt="skip" src="assets/skip.svg">
+          </button>
+          <button class="central-button button queue" type="button">
+            <img alt="queue" src="assets/queue.svg">
+          </button>
         </div>
         <div class="imaginable-right-button">
         </div>
       </div>
     </div>
-    <div class="music-playlist-container">
+  </div>
+
+  <div class="music-secondary-container">
+
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks active button" onclick="openCity(event, 'London')">
+        <img src="assets/search.svg" alt="search"> Поиск </button>
+      <button class="tablinks button" onclick="openCity(event, 'Paris')">
+        <img src="assets/queue.svg" alt="search"> Плейлисты </button>
+      <button class="tablinks button" onclick="openCity(event, 'Tokyo')">
+        <img src="assets/queue2.svg" alt="search"> Очередь </button>
+    </div>
+
+    <div class="custom-select">
+      <img src="assets/check.svg" alt="check" class="check">
+      <div class="vk">
+        <img src="assets/vk.svg" alt="vk">
+      </div>
       <div class="music-playlist">
-        <div class="music-playlist-title"> Поставить песню
-          <p>(ну вот да, пока так, вводи чё там хочешь и жми энтер
-            или тыкай кнопку хз)</p>
-        </div>
         <div class="music-playlist-search">
           <input (keydown.enter)="handleClick('play')" [formControl]="requestedSong">
         </div>
